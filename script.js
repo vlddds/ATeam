@@ -115,15 +115,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
             recipe.addEventListener("click", () => {
                 const title = recipe.querySelector("p").innerText;
-                if (!savedRecipes.includes(title)) {
-                    savedRecipes.push(title);
-                    localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-                    alert(`"${title}" додано до збережених!`);
-                } else {
-                    alert(`"${title}" вже є у збережених!`);
-                }
-            });
+                if (title === "Картопля") {
+                window.location.href = "kartoha.html";
+                return; 
+            }
+
+            if (!savedRecipes.includes(title)) {
+                savedRecipes.push(title);
+                localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+                alert(`"${title}" додано до збережених!`);
+            } else {
+                alert(`"${title}" вже є у збережених!`);
+            }
         });
+    });
 
         savedRecipesBtn.onclick = () => {
             alert(savedRecipes.length
@@ -139,5 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const headerNav = document.querySelector("header nav");
     optionsBtn.addEventListener("click", () => headerNav.classList.toggle("active"));
 
+    if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
     loadPage("recipes");
+}
 });

@@ -75,6 +75,17 @@ header hr {
     border-radius: 10px;       
     overflow: hidden;  
 }
+
+karti{
+    border-radius: 10px;       
+    overflow: hidden;  
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+}
+
+
 .saved button {
     background: #c89f73;
     color: white;
