@@ -1,0 +1,179 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #FFE5C5;
+    color: #333;
+    
+}
+
+header {
+    text-align: center;
+    background: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 20px;       
+    overflow: hidden;         
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15); 
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+p {
+    border: solid 2px #ccc;
+    border-radius: 15px;
+    padding: 3px;
+}
+
+#ueue {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    border: solid 2px #ccc;
+    border-radius: 15px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+header hr {
+    margin: 10px auto;
+    width: 90%;
+    border: none;
+    height: 1px;
+    background: #ccc;
+}
+
+.saved {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+.kart{
+    border-radius: 10px;       
+    overflow: hidden;  
+}
+
+karti{
+    border-radius: 10px;       
+    overflow: hidden;  
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+}
+
+
+.saved button {
+    background: #c89f73;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 200px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+main h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.recipes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-content: center;
+    padding: 0 20px 40px;
+}
+
+.recipes button {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.recipes button:hover {
+    transform: scale(1.03);
+}
+.budka{
+    background: #c89f73;
+}
+.recipes img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-bottom: 1px solid #ccc;
+}
+
+.recipes p {
+    padding: 10px;
+    font-weight: bold;
+}
+
+footer {
+    background: #eee;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    border-radius: 20px;       
+    overflow: hidden;         
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15); 
+}
+
+footer nav {
+    margin: 10px 0;
+}
+
+footer nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+footer img {
+    width: 30px;
+    height: 30px;
+}
