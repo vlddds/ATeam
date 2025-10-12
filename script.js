@@ -1,4 +1,4 @@
-// логіка проєкту
+// Логіка проєкту
 document.addEventListener("DOMContentLoaded", () => {
     const main = document.querySelector("main");
 
@@ -15,19 +15,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img class="kart" src="https://images.unian.net/photos/2024_11/thumb_files/860_470_1730993412-6127.jpg" alt="Випічка">
                     <p>Випічка</p>
                 </button>
-                <button>
+                <button class="budka">
                     <img class="kart" src="https://ukr.media/static/ba/aimg/3/8/9/389015_1.jpg" alt="Перші страви">
                     <p>Перші страви</p>
                 </button>
-                <button>
+                <button class="budka">
                     <img class="kart" src="https://papigutto.com.ua/wp-content/uploads/2016/07/Screenshot_405.jpg" alt="М'ясо">
                     <p>М'ясо</p>
                 </button>
-                <button>
+                <button class="budka">
                     <img class="kart" src="https://smachno.ua/wp-content/uploads/2023/04/06/pexels-figen-kokol-15490120-640x400.jpg" alt="Картопля">
                     <p>Картопля</p>
                 </button>
-                <button>
+                <button class="budka">
+                    <img class="kart" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyfb9UpUDSBZMMoSuY5iU2Gn1lXTZ7nhNo4g&s" alt="Борщі">
+                    <p>Борщі</p>
+                </button>
+                <button class="budka">
                     <img class="kart" src="https://www.kikkoman.ru/fileadmin/_processed_/3/3/csm_1213_Recipe-Page_Cantonese_Tofu_Stir-FryNoodles_SoySauce_Step1_ea389c55db.webp" alt="Лапша">
                     <p>Лапша</p>
                 </button>
@@ -69,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
             main.classList.remove("fade-out");
             main.classList.add("fade-in");
             setTimeout(() => main.classList.remove("fade-in"), 300);
-
             if (pageName === "recipes") initializeRecipeLogic();
         }, 300);
     }
@@ -86,49 +89,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initializeRecipeLogic() {
         const recipes = document.querySelectorAll(".recipes button");
-        const savedRecipesBtn = document.querySelector(".saved button:first-child");
-        const savedTipsBtn = document.querySelector(".saved button:last-child");
-
-        let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
 
         recipes.forEach(recipe => {
-            const title = recipe.querySelector("p").innerText.trim();
-
             recipe.addEventListener("click", () => {
-                if (title === "Картопля") return (window.location.href = "kartoha.html");
-                if (title === "М'ясо") return (window.location.href = "myaso.html");
-                if (title === "Перші страви") return (window.location.href = "first_havchik.html");
-                if (title === "Борщі") return (window.location.href = "Borchi.html");
-                if (title === "Лапша") return (window.location.href = "lapsha.html");
+                const alt = recipe.querySelector("img").alt.toLowerCase();
 
-                if (!savedRecipes.includes(title)) {
-                    savedRecipes.push(title);
-                    localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-                    alert(`"${title}" додано до збережених ✅`);
-                } else {
-                    alert(`"${title}" вже є у збережених 😉`);
-                }
+                if (alt === "картопля") window.location.href = "kartoha.html";
+                else if (alt === "м'ясо") window.location.href = "myaso.html";
+                else if (alt === "перші страви") window.location.href = "first_havchik.html";
+                else if (alt === "борщі") window.location.href = "Borchi.html";
+                else if (alt === "лапша") window.location.href = "lapsha.html";
+                else if (alt === "випічка") window.location.href = "vypichka.html";
             });
         });
-
-        savedRecipesBtn.addEventListener("click", () => {
-            alert(savedRecipes.length
-                ? "📋 Збережені рецепти:\n" + savedRecipes.join("\n")
-                : "Немає збережених рецептів 😔"
-            );
-        });
-
-        savedTipsBtn.addEventListener("click", () =>
-            alert("Функціонал збереження порад ще в розробці 😉")
-        );
     }
 
     const optionsBtn = document.querySelector(".options_btn");
     const headerNav = document.querySelector("header nav");
-    if (optionsBtn && headerNav) {
-        optionsBtn.addEventListener("click", () => headerNav.classList.toggle("active"));
-    }
+    optionsBtn.addEventListener("click", () => headerNav.classList.toggle("active"));
 
+    // За замовчуванням відкриває сторінку "Рецепти"
     if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
         loadPage("recipes");
     }

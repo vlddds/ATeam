@@ -40,20 +40,20 @@
         <hr>
 
         <h2>Рецепти</h2>
-        <div class="recipes">
+        <div class="recipes" id="karvip">
         <button>
             <br/>
             <img class ="kart" src="https://images.unian.net/photos/2024_11/thumb_files/860_470_1730993412-6127.jpg" alt="Випічка">
             <p>Випічка</p>
         </button>
 
-        <button class="budka">
+        <button class="budka" id="karfirst">
             <br/>
             <img class ="kart" src="https://ukr.media/static/ba/aimg/3/8/9/389015_1.jpg" alt="Перші страви">
             <p>Перші страви</p>
         </button>
 
-        <button class="budka">
+        <button class="budka" id="karmys">
             <br/>
             <img class ="kart" src="https://papigutto.com.ua/wp-content/uploads/2016/07/Screenshot_405.jpg" alt="М'ясо">
             <p>М'ясо</p>
@@ -63,9 +63,11 @@
             <img class="kart" src="https://smachno.ua/wp-content/uploads/2023/04/06/pexels-figen-kokol-15490120-640x400.jpg" alt="Картопля">
             <p>Картопля</p>
         </button>
-        <button class="budka" id="kartButton">
+
+
+        <button class="budka" id="kartBosh">
             <br/>
-            <img class="kart" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyfb9UpUDSBZMMoSuY5iU2Gn1lXTZ7nhNo4g&s" alt="Картопля">
+            <img class="kart" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyfb9UpUDSBZMMoSuY5iU2Gn1lXTZ7nhNo4g&s" alt="Борщі">
             <p>Борщі</p>
         </button>
 
@@ -73,14 +75,27 @@
         document.getElementById("kartButton").addEventListener("click", function() {
             window.location.href = "kartoha.html";
         });
-        </script>
-        <button class="budka">
-            <br/>
-            <img class ="kart" src="https://www.kikkoman.ru/fileadmin/_processed_/3/3/csm_1213_Recipe-Page_Cantonese_Tofu_Stir-FryNoodles_SoySauce_Step1_ea389c55db.webp" alt="Лапша">
-            <p>Лапша</p>
-        </button>
 
+        document.getElementById("karlapsha").addEventListener("click", function() {
+            window.location.href = "lapsha.html";
+        });
 
+        document.getElementById("kartBosh").addEventListener("click", function() {
+            window.location.href = "Borchi.html";
+        });
+
+        document.getElementById("karmys").addEventListener("click", function() {
+            window.location.href = "myaso.html";
+        });
+
+        document.getElementById("karfirst").addEventListener("click", function() {
+            window.location.href = "first_havchik.html";
+        });
+
+        document.getElementById("karvip").addEventListener("click", function() {
+            window.location.href = "vipichka.html";
+        });
+    </script>
     </main>
 
     <footer>
