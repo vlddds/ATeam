@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Best choice </title>
-    <link rel ='stylesheet' href ="styles.css">
+    <link rel ='stylesheet' href ="style1.css">
     <script src ="script.js"></script>
 
 </head>
@@ -32,55 +32,30 @@
 
     
     <main>
-        <div class="saved"> 
-        <button>Збережені рецепти</button>
-        <button>Збережені поради</button>
+
+        <h1 id="ueue" class="recipe">Перші страви</h1>
+
+        <div class="recipe">
+            <h2>1. Суп</h2>
+            <img class ="kart" src="https://c.files.bbci.co.uk/15DA8/production/_117821598_gettyimages-183366960.jpg" alt="Суп" height="300px" width="600px">
+            <p><b>Інгредієнти:</b> картопля, морква, цибуля, сіль.</p>
+            <p><b>Приготування:</b> Нарізати овочі, відварити у воді до готовності, посолити за смаком.</p>
         </div>
 
-        <hr>
+        <div class="recipe">
+            <h2>2. Борщ</h2>   
+            <img class ="kart" src="https://st.depositphotos.com/1561509/3143/i/450/depositphotos_31437315-stock-photo-russian-and-ukraine-cuisine-borsch.jpg" alt="Борщ">
+            <p><b>Інгредієнти:</b> буряк, капуста, картопля, морква, томатна паста, сіль.</p>
+            <p><b>Приготування:</b> Відварити овочі, додати пасеровані буряк і моркву з томатом, варити до готовності.</p>
+        </div>
 
-        <h2>Рецепти</h2>
-        <div class="recipes">
-        <button>
-            <br/>
-            <img class ="kart" src="https://images.unian.net/photos/2024_11/thumb_files/860_470_1730993412-6127.jpg" alt="Випічка">
-            <p>Випічка</p>
-        </button>
+        <div class="recipe">
+            <h2>3. Солянка</h2>
+            <img class ="kart" src="https://i.obozrevatel.com/food/recipemain/2018/11/23/7762801.jpg" alt="Солянка">
+            <p><b>Інгредієнти:</b> ковбаса, огірки, картопля, томатна паста, маслини, сіль.</p>
+            <p><b>Приготування:</b> Відварити картоплю, додати обсмажену ковбасу з огірками й томатом, потім маслини, посолити.</p>
 
-        <button class="budka">
-            <br/>
-            <img class ="kart" src="https://ukr.media/static/ba/aimg/3/8/9/389015_1.jpg" alt="Перші страви">
-            <p>Перші страви</p>
-        </button>
-
-        <button class="budka">
-            <br/>
-            <img class ="kart" src="https://papigutto.com.ua/wp-content/uploads/2016/07/Screenshot_405.jpg" alt="М'ясо">
-            <p>М'ясо</p>
-        </button>
-        <button class="budka" id="kartButton">
-            <br/>
-            <img class="kart" src="https://smachno.ua/wp-content/uploads/2023/04/06/pexels-figen-kokol-15490120-640x400.jpg" alt="Картопля">
-            <p>Картопля</p>
-        </button>
-        <button class="budka" id="kartButton">
-            <br/>
-            <img class="kart" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyfb9UpUDSBZMMoSuY5iU2Gn1lXTZ7nhNo4g&s" alt="Картопля">
-            <p>Борщі</p>
-        </button>
-
-        <script>
-        document.getElementById("kartButton").addEventListener("click", function() {
-            window.location.href = "kartoha.html";
-        });
-        </script>
-        <button class="budka">
-            <br/>
-            <img class ="kart" src="https://www.kikkoman.ru/fileadmin/_processed_/3/3/csm_1213_Recipe-Page_Cantonese_Tofu_Stir-FryNoodles_SoySauce_Step1_ea389c55db.webp" alt="Лапша">
-            <p>Лапша</p>
-        </button>
-
-
+        </div>
     </main>
 
     <footer>
