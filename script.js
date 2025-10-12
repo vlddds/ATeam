@@ -115,20 +115,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
             recipe.addEventListener("click", () => {
                 const title = recipe.querySelector("p").innerText;
-                if (title === "Картопля") {
-                window.location.href = "kartoha.html";
-                return; 
-            }
 
-            if (!savedRecipes.includes(title)) {
-                savedRecipes.push(title);
-                localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
-                alert(`"${title}" додано до збережених!`);
-            } else {
-                alert(`"${title}" вже є у збережених!`);
-            }
+                if (title === "Картопля") {
+                    window.location.href = "kartoha.html";
+                    return;
+                }
+                if (title === "М'ясо") {
+                    window.location.href = "myaso.html";
+                    return;
+                }
+                if (title === "Перші страви") {
+                    window.location.href = "first_havchik.html";
+                    return;
+                }
+                if (title === "Борщі") {
+                    window.location.href = "Borchi.html";
+                    return;
+                }
+                if (title === "Лапша") {
+                    window.location.href = "lapsha.html";
+                    return;
+                }
+
+                if (!savedRecipes.includes(title)) {
+                    savedRecipes.push(title);
+                    localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+                    alert(`"${title}" додано до збережених!`);
+                } else {
+                    alert(`"${title}" вже є у збережених!`);
+                }
+            });
         });
-    });
 
         savedRecipesBtn.onclick = () => {
             alert(savedRecipes.length
@@ -145,6 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
     optionsBtn.addEventListener("click", () => headerNav.classList.toggle("active"));
 
     if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
-    loadPage("recipes");
-}
+        loadPage("recipes");
+    }
 });
