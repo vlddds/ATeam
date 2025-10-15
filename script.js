@@ -1,4 +1,4 @@
-// Логіка проєкту
+// логіка проєкту
 document.addEventListener("DOMContentLoaded", () => {
     const main = document.querySelector("main");
 
@@ -10,31 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <hr>
             <h2>Рецепти</h2>
-            <div class="recipes">
-                <button>
-                    <img class="kart" src="https://images.unian.net/photos/2024_11/thumb_files/860_470_1730993412-6127.jpg" alt="Випічка">
-                    <p>Випічка</p>
-                </button>
-                <button class="budka">
-                    <img class="kart" src="https://ukr.media/static/ba/aimg/3/8/9/389015_1.jpg" alt="Перші страви">
-                    <p>Перші страви</p>
-                </button>
-                <button class="budka">
-                    <img class="kart" src="https://papigutto.com.ua/wp-content/uploads/2016/07/Screenshot_405.jpg" alt="М'ясо">
-                    <p>М'ясо</p>
-                </button>
-                <button class="budka">
-                    <img class="kart" src="https://smachno.ua/wp-content/uploads/2023/04/06/pexels-figen-kokol-15490120-640x400.jpg" alt="Картопля">
-                    <p>Картопля</p>
-                </button>
-                <button class="budka">
-                    <img class="kart" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyfb9UpUDSBZMMoSuY5iU2Gn1lXTZ7nhNo4g&s" alt="Борщі">
-                    <p>Борщі</p>
-                </button>
-                <button class="budka">
-                    <img class="kart" src="https://www.kikkoman.ru/fileadmin/_processed_/3/3/csm_1213_Recipe-Page_Cantonese_Tofu_Stir-FryNoodles_SoySauce_Step1_ea389c55db.webp" alt="Лапша">
-                    <p>Лапша</p>
-                </button>
+            <div class="recipes" id="karvip">
+            <button>
+                <br/>
+                <img class ="kart" src="https://images.unian.net/photos/2024_11/thumb_files/860_470_1730993412-6127.jpg" alt="Випічка">
+                <p>Випічка</p>
+            </button>
+
+            <button class="budka" id="karfirst">
+                <br/>
+                <img class ="kart" src="https://ukr.media/static/ba/aimg/3/8/9/389015_1.jpg" alt="Перші страви">
+                <p>Перші страви</p>
+            </button>
+
+            <button class="budka" id="karmys">
+                <br/>
+                <img class ="kart" src="https://papigutto.com.ua/wp-content/uploads/2016/07/Screenshot_405.jpg" alt="М'ясо">
+                <p>М'ясо</p>
+            </button>
+            <button class="budka" id="kartButton">
+                <br/>
+                <img class="kart" src="https://smachno.ua/wp-content/uploads/2023/04/06/pexels-figen-kokol-15490120-640x400.jpg" alt="Картопля">
+                <p>Картопля</p>
+            </button>
+
+
+            <button class="budka" id="kartBosh">
+                <br/>
+                <img class="kart" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyfb9UpUDSBZMMoSuY5iU2Gn1lXTZ7nhNo4g&s" alt="Борщі">
+                <p>Борщі</p>
+            </button>
             </div>
         `,
         tips: `
@@ -88,27 +93,83 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function initializeRecipeLogic() {
+        const searchInput = document.querySelector(".search-bar input");
+        const searchBtn = document.querySelector(".serch_btn");
         const recipes = document.querySelectorAll(".recipes button");
 
-        recipes.forEach(recipe => {
-            recipe.addEventListener("click", () => {
+        function searchRecipes() {
+            const query = searchInput.value.toLowerCase().trim();
+            recipes.forEach(recipe => {
+                const text = recipe.innerText.toLowerCase();
                 const alt = recipe.querySelector("img").alt.toLowerCase();
+                recipe.style.display = (text.includes(query) || alt.includes(query)) ? "block" : "none";
+            });
+        }
 
-                if (alt === "картопля") window.location.href = "kartoha.html";
-                else if (alt === "м'ясо") window.location.href = "myaso.html";
-                else if (alt === "перші страви") window.location.href = "first_havchik.html";
-                else if (alt === "борщі") window.location.href = "Borchi.html";
-                else if (alt === "лапша") window.location.href = "lapsha.html";
-                else if (alt === "випічка") window.location.href = "vypichka.html";
+        searchBtn.onclick = searchRecipes;
+        searchInput.onkeypress = (e) => e.key === "Enter" && searchRecipes();
+
+        const savedRecipesBtn = document.querySelector(".saved button:first-child");
+        const savedTipsBtn = document.querySelector(".saved button:last-child");
+        let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+
+        recipes.forEach(recipe => {
+            const overlay = document.createElement("div");
+            overlay.classList.add("overlay");
+            overlay.innerText = "Купити";
+            recipe.appendChild(overlay);
+
+            recipe.addEventListener("mouseenter", () => recipe.classList.add("hovered"));
+            recipe.addEventListener("mouseleave", () => recipe.classList.remove("hovered"));
+
+            recipe.addEventListener("click", () => {
+                const title = recipe.querySelector("p").innerText;
+
+                if (title === "Картопля") {
+                    window.location.href = "kartoha.html";
+                    return;
+                }
+                if (title === "М'ясо") {
+                    window.location.href = "myaso.html";
+                    return;
+                }
+                if (title === "Перші страви") {
+                    window.location.href = "first_havchik.html";
+                    return;
+                }
+                if (title === "Борщі") {
+                    window.location.href = "Borchi.html";
+                    return;
+                }
+                if (title === "Лапша") {
+                    window.location.href = "lapsha.html";
+                    return;
+                }
+
+                if (!savedRecipes.includes(title)) {
+                    savedRecipes.push(title);
+                    localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+                    alert(`"${title}" додано до збережених!`);
+                } else {
+                    alert(`"${title}" вже є у збережених!`);
+                }
             });
         });
-    }
 
+        savedRecipesBtn.onclick = () => {
+            alert(savedRecipes.length
+                ? "Збережені рецепти:\n" + savedRecipes.join("\n")
+                : "Немає збережених рецептів 😔"
+            );
+        };
+
+        savedTipsBtn.onclick = () => alert("Функціонал збереження порад ще в розробці 😉");
+    }
+    
     const optionsBtn = document.querySelector(".options_btn");
     const headerNav = document.querySelector("header nav");
     optionsBtn.addEventListener("click", () => headerNav.classList.toggle("active"));
 
-    // За замовчуванням відкриває сторінку "Рецепти"
     if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
         loadPage("recipes");
     }
