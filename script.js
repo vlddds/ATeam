@@ -10,36 +10,32 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <hr>
             <h2>Рецепти</h2>
-            <div class="recipes" id="karvip">
-            <button>
-                <br/>
-                <img class ="kart" src="https://images.unian.net/photos/2024_11/thumb_files/860_470_1730993412-6127.jpg" alt="Випічка">
-                <p>Випічка</p>
-            </button>
+            <div class="recipes">
+                <button>
+                    <img class="kart" src="https://images.unian.net/photos/2024_11/thumb_files/860_470_1730993412-6127.jpg" alt="Випічка">
+                    <p>Випічка</p>
+                </button>
+                <button class="budka">
+                    <img class="kart" src="https://ukr.media/static/ba/aimg/3/8/9/389015_1.jpg" alt="Перші страви">
+                    <p>Перші страви</p>
+                </button>
+                <button class="budka">
+                    <img class="kart" src="https://papigutto.com.ua/wp-content/uploads/2016/07/Screenshot_405.jpg" alt="М'ясо">
+                    <p>М'ясо</p>
+                </button>
+                <button class="budka">
+                    <img class="kart" src="https://smachno.ua/wp-content/uploads/2023/04/06/pexels-figen-kokol-15490120-640x400.jpg" alt="Картопля">
+                    <p>Картопля</p>
+                </button>
+                <button class="budka">
+                    <img class="kart" src="https://www.kikkoman.ru/fileadmin/_processed_/3/3/csm_1213_Recipe-Page_Cantonese_Tofu_Stir-FryNoodles_SoySauce_Step1_ea389c55db.webp" alt="Лапша">
+                    <p>Лапша</p>
+                </button>
+                <button class="budka" id="kartBosh">
 
-            <button class="budka" id="karfirst">
-                <br/>
-                <img class ="kart" src="https://ukr.media/static/ba/aimg/3/8/9/389015_1.jpg" alt="Перші страви">
-                <p>Перші страви</p>
-            </button>
-
-            <button class="budka" id="karmys">
-                <br/>
-                <img class ="kart" src="https://papigutto.com.ua/wp-content/uploads/2016/07/Screenshot_405.jpg" alt="М'ясо">
-                <p>М'ясо</p>
-            </button>
-            <button class="budka" id="kartButton">
-                <br/>
-                <img class="kart" src="https://smachno.ua/wp-content/uploads/2023/04/06/pexels-figen-kokol-15490120-640x400.jpg" alt="Картопля">
-                <p>Картопля</p>
-            </button>
-
-
-            <button class="budka" id="kartBosh">
-                <br/>
-                <img class="kart" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyfb9UpUDSBZMMoSuY5iU2Gn1lXTZ7nhNo4g&s" alt="Борщі">
-                <p>Борщі</p>
-            </button>
+                    <img class="kart" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyfb9UpUDSBZMMoSuY5iU2Gn1lXTZ7nhNo4g&s" alt="Борщі">
+                    <p>Борщі</p>
+                </button>
             </div>
         `,
         tips: `
@@ -116,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         recipes.forEach(recipe => {
             const overlay = document.createElement("div");
             overlay.classList.add("overlay");
-            overlay.innerText = "Купити";
+            overlay.innerText = "";
             recipe.appendChild(overlay);
 
             recipe.addEventListener("mouseenter", () => recipe.classList.add("hovered"));
