@@ -141,6 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     window.location.href = "lapsha.html";
                     return;
                 }
+                if (title === "Випічка") {
+                    window.location.href = "baking.html";
+                    return;
+                }
 
                 if (!savedRecipes.includes(title)) {
                     savedRecipes.push(title);
